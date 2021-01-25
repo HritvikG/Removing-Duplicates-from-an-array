@@ -1,0 +1,29 @@
+To remove the duplicates from an array in java, there is a very simple way.
+at first make an ArrayList and take integers as input, then transfer the list to HashSet and the back to Arraylist, these 3 lines of code will make all the duplicates disappear
+and sometimes you have to get a input as string, for further use. you can do that too, just make the resulted arraylist into string and replace the "[" with " ". and we are DONE.
+
+
+import java.util.*;
+public class Main {
+    public static void main (String args[]) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int k = sc.nextInt();
+        int count=0;
+        ArrayList<Integer> arr = new ArrayList<Integer>();
+                for(int i=0;i<n;i++){
+            arr.add(sc.nextInt());
+        }
+         Collections.sort(arr);
+                     for(int i=0;i<arr.size();i++){
+                         if(arr.get(i).equals(k)){
+                             count++;
+                         }
+                     }
+            arr.removeIf(i ->(i>k));
+            HashSet<Integer> hs = new HashSet<Integer>(arr);
+            ArrayList<Integer> al = new ArrayList<Integer>(hs);
+            System.out.println(al.size()+count-1);
+        }
+}
+           
